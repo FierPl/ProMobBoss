@@ -1,0 +1,52 @@
+
+name: ProMobBoss
+version: ${project.version}
+main: com.wattbreak.promobboss.ProMobBoss
+api-version: 1.18
+author: WattBreak
+
+description: Advanced Boss and Mob Management System. Integrated with MythicMobs and ModelEngine.
+
+softdepend: [MythicMobs, PlaceholderAPI]
+
+commands:
+  mb:
+    description: ProMobBoss main command.
+    aliases: [promb, mobboss]
+    permission: promb.user
+    usage: /<command> <reload|menu|boss|mob|egg>
+
+permissions:
+  promb.*:
+    description: Grants all permissions for the ProMobBoss plugin.
+    children:
+      promb.admin: true
+      promb.user: true
+  promb.admin:
+    description: Access to plugin management commands.
+    default: op
+    children:
+      promb.reload: true
+  promb.user:
+    description: Access to basic user commands.
+    default: true
+    children:
+      promb.menu: true
+      promb.boss.kill.info: true
+  promb.boss:
+    description: Access to boss related commands.
+    default: op
+    children:
+      promb.boss.spawn: true
+      promb.boss.add: true
+      promb.boss.remove: true
+  promb.mob:
+    description: Permission to access Mob-related commands
+    default: op
+    children:
+      promb.mob.spawn: true
+      promb.mob.add: true
+      promb.mob.remove: true
+  promb.egg:
+    description: Permission to receive Boss/Mob eggs.
+    default: op

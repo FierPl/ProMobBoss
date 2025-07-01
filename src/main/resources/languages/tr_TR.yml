@@ -1,0 +1,541 @@
+# ================================================================= #
+#                 ProMobBoss Türkçe Dil Dosyası (TR)                  #
+#               Renk kodları '&' karakteri ile kullanılır.            #
+#         {prefix} değişkeni, config.yml'deki ile değiştirilir.       #
+#      Açıklamalar (lore) için YAML'nin liste formatını kullanın.      #
+# ================================================================= #
+
+# Ana Eklenti Prefixi
+prefix: "&8[&bPro&3MB&8] &r"
+
+# Dummy mesaj, sadece formatlama için kullanılır, dokunmayın.
+dummy: "%message%"
+
+unknown-command: "&cBöyle bir komut bulunmuyor."
+
+# --- GENEL MESAJLAR ---
+general:
+  reload-start: "{prefix}&eEklenti yeniden yükleniyor..."
+  reload-success: "{prefix}&aEklenti başarıyla yeniden yüklendi."
+  no-permission: "{prefix}&cBu komutu kullanmak için yetkiniz yok."
+  player-only-command: "{prefix}&cBu komut sadece oyuncular tarafından kullanılabilir."
+  inventory-full-drop: "{prefix}&cEnvanterin doluydu, ödülün yere atıldı!"
+  update-checker:
+    new-version-available: "{prefix}&aYeni bir ProMobBoss sürümü mevcut! &7(Şu anki: &fv%current_version%&7, Son: &bV%latest_version%&7)"
+    download-link: "{prefix}&aEn son sürümü buradan indirebilirsiniz: &e%link%"
+  status-active: "&aAktif"
+  status-disabled: "&cDevre Dışı"
+  cancel-keyword: "cancel"
+
+# --- KOMUT MESAJLARI ---
+commands:
+  unknown-command: "{prefix}&cBilinmeyen komut. Komut listesi için &e/mb help &ckullanın."
+  invalid-usage: "{prefix}&cYanlış kullanım. Doğru format: &e%usage%"
+  help:
+    header: "&8&m------------&r &b&lProMobBoss Yardım Menüsü &8&m------------"
+    format: "&3%command% &8- &7%description%"
+    footer: "&8&m------------------------------------------------"
+    description: "Tüm komutları listeler."
+    syntax: "/mb help"
+  reload:
+    description: "Eklentinin tüm konfigürasyonlarını yeniden yükler."
+    syntax: "/mb reload"
+  menu:
+    description: "Eklentinin ana yönetim menüsünü açar."
+    syntax: "/mb menu"
+  boss:
+    description: "Boss oluşturur, siler veya çağırır."
+    syntax: "/mb boss <add|remove|spawn> <isim>"
+  mob:
+    description: "Özel mob oluşturur, siler veya çağırır."
+    syntax: "/mb mob <add|remove|spawn> <isim>"
+  egg:
+    description: "Bir boss veya mob yumurtası verir."
+    syntax: "/mb egg <boss|mob> <isim>"
+
+# --- SİSTEM MESAJLARI ---
+system:
+  boss-killed: "{prefix}&6%player% &e, kudretli &c&l%boss_name% &e'ni katletti!"
+  boss-location-not-set: "{prefix}&c&e%boss_name% &cadlı boss için bir doğma konumu ayarlanmamış."
+  boss-spawn-success: "{prefix}&a&e%boss_name% &aadlı boss başarıyla doğuruldu."
+  mob-spawn-success: "{prefix}&a&e%mob_name% &aadlı mob bulunduğun konumda başarıyla doğuruldu."
+  boss-already-exists: "{prefix}&c&e%name% &cadlı boss zaten mevcut."
+  boss-not-found: "{prefix}&c&e%name% &cadlı bir boss bulunamadı."
+  boss-created: "{prefix}&a&e%name% &aadlı yeni boss başarıyla oluşturuldu. Ayarlarını menüden yapabilirsiniz."
+  boss-removed: "{prefix}&a&e%name% &aadlı boss başarıyla silindi."
+  mob-created: "{prefix}&a&e%name% &aadlı yeni özel mob başarıyla oluşturuldu."
+  mob-already-exists: "{prefix}&c&e%name% &cadlı özel mob zaten mevcut."
+  mob-not-found: "{prefix}&c&e%name% &cadlı bir özel mob bulunamadı."
+  mob-removed: "{prefix}&a&e%name% &aadlı özel mob başarıyla silindi."
+  egg-received: "{prefix}&a&e%name% &aiçin yumurta envanterine eklendi."
+  entity-not-found: "{prefix}&c&e%name% &adlı bir &e%type% &cbulunamadı."
+
+# --- DUYURULAR ---
+announcements:
+  boss:
+    five-minutes: "{prefix}&c&l%boss_name% &esavaş alanına inmesine son &c5 dakika&e!"
+    sixty-seconds: |-
+      &8&m+---------------------------------------------------+
+      &r 
+      &c&l                     DİKKAT!
+      &r 
+      &6&l%boss_name% &eadlı boss, &b1 Dakika &eiçinde
+      &b%world% &edünyasındaki yerini alacak!
+      &r 
+      &8&m+---------------------------------------------------+
+    thirty-seconds: "{prefix}&c&l%boss_name% &eortaya çıkmasına son &c30 saniye&e!"
+    ten-seconds: "{prefix}&c&l%boss_name% &eiçin son &c10 saniye&e! Hazırlanın!"
+    countdown: "{prefix}&6&l%boss_name% &eiçin son &c&l%time%..."
+    spawned: "{prefix}&4&l%boss_name% &cdoğdu! &eSavaş başlasın!"
+
+# --- MENÜ (GUI) METİNLERİ ---
+gui:
+  buttons:
+    back: "&c« Geri Dön"
+    back-lore:
+      - "&7Bir önceki menüye döner."
+    close: "&cKapat"
+    close-lore:
+      - "&7Menüyü kapatır."
+    previous-page: "&a< Önceki Sayfa"
+    previous-page-lore:
+      - "&7Bir önceki sayfaya gider."
+    next-page: "&aSonraki Sayfa >"
+    next-page-lore:
+      - "&7Bir sonraki sayfaya gider."
+    page-info: "&eSayfa: %page%"
+    page-info-lore:
+      - "&7Mevcut sayfa numaranız."
+    confirm: "&a&lONAYLA"
+    confirm-lore:
+      - "&7Bu işlemi onaylamak için tıkla."
+    cancel: "&c&lİPTAL ET"
+    cancel-lore:
+      - "&7Bu işlemi iptal etmek için tıkla."
+  main-menu:
+    title: "&8ProMobBoss &7» &0Ana Menü"
+    boss-button:
+      name: "&c&lBoss Yönetimi"
+      lore:
+        - "&7Zamanlanmış, özel bossları"
+        - "&7yönetmek için tıkla."
+    mobs-button:
+      name: "&a&lMob Yönetimi"
+      lore:
+        - "&7Dünyalarda otomatik doğacak"
+        - "&7özel mob'ları yönetmek için tıkla."
+  boss-list-menu:
+    title: "&8ProMobBoss &7» &0Boss Listesi"
+    add-new-boss: "&a&l[+] Yeni Boss Ekle"
+    add-new-boss-command: "{prefix}&aYeni boss oluşturmak için: &e/mb boss add <isim>"
+    boss-not-found-refresh: "&cBu boss artık mevcut değil. Menü yenileniyor."
+    no-bosses-configured: "&cHiç boss yapılandırılmamış."
+    location-format: "&fDünya: %world%, X: %x%, Y: %y%, Z: %z%"
+    add-new-boss-lore:
+      - "&7Komutla yeni bir boss oluştur:"
+      - "&e/mb boss add <isim>"
+    item:
+      lore-status: "&7Durum: %status%"
+      lore-location: "&7Konum: %location%"
+      lore-edit: "&e» &aDüzenlemek &7için &eSol Tıkla"
+      lore-delete: "&e» &cSİlmek &7için &eSağ Tıkla"
+  delete-confirm-menu:
+    title: "&8Emin misin? &7» &c%name%"
+    item:
+      name: "&c&l%name% isimli varlığı sil"
+      lore:
+        - "&4DİKKAT! &cBu işlem geri alınamaz."
+        - "&cTüm verileri kalıcı olarak silinecektir."
+  boss-editor-menu:
+    title: "&8Düzenleniyor &7- &c%boss_name%"
+    prompt-name: "{prefix}&eLütfen boss için yeni bir ismi sohbete yazın. &7(&6%cancel_keyword% &7yazarak işlemi durdurabilirsiniz.)"
+    prompt-cancelled: "{prefix}&cİşlem iptal edildi."
+    name-set: "{prefix}&aBoss ismi başarıyla '&r%name%&r&a' olarak güncellendi."
+    location-set: "{prefix}&aBoss konumu başarıyla şu anki konumunuza ayarlandı."
+    item:
+      info-panel:
+        title: "&c&l%boss_name%"
+        lore:
+          - "&m-----------------------------"
+          - "&7Bu panel, boss'un mevcut ayarlarını"
+          - "&7hızlıca görmeniz için bir özettir."
+          - " "
+          - "&c● &7Durum: %status%"
+          - "&c● &7Konum: %location%"
+          - "&c● &7Mob Tipi: &f%mob_type%"
+          - "&c● &7Doğma Günü: &f%day%"
+          - "&c● &7Doğma Saati: &f%time%"
+          - "&m-----------------------------"
+      name:
+        title: "&b&lİsim & Ayarları"
+        lore:
+          - "&7Boss'un oyunda görünecek"
+          - "&7ismini değiştirirsiniz."
+          - " "
+          - "&7Mevcut: &f%name%"
+          - " "
+          - "&e» &7Değiştirmek için tıkla"
+      status:
+        title-enabled: "&a&lBoss Aktif"
+        lore-enabled:
+          - "&7Boss şu anda zamanı geldiğinde"
+          - "&7doğabilecek şekilde ayarlı."
+          - " "
+          - "&e» &cDevre Dışı Bırakmak &eiçin tıkla"
+        title-disabled: "&c&lBoss Devre Dışı"
+        lore-disabled:
+          - "&7Boss şu anda zamanı gelse bile"
+          - "&7asla doğmayacak şekilde ayarlı."
+          - " "
+          - "&e» &aAktifleştirmek &eiçin tıkla"
+      location:
+        title: "&d&lKonum Ayarları"
+        lore:
+          - "&7Boss'un nerede doğacağını belirler."
+          - "&7Bu butona tıklamak, konumu"
+          - "&6sizin şu anki &7yerinize ayarlar."
+          - " "
+          - "&e» &7Güncellemek için tıkla"
+      time:
+        title: "&e&lZamanlama Ayarları"
+        lore:
+          - "&7Boss'un hangi gün ve saatte"
+          - "&7doğacağını ayarlamanızı sağlar."
+          - " "
+          - "&e» &7Düzenlemek için tıkla"
+      mob-type:
+        title: "&9&lMob Tipi Ayarları"
+        lore:
+          - "&7Boss'un canı, hasarı, zırhı"
+          - "&7ve görünüşünü ayarlamanızı sağlar."
+          - " "
+          - "&e» &7Düzenlemek için tıkla"
+      rewards:
+        title: "&6&lÖdül Ayarları"
+        lore:
+          - "&7Boss kesildiğinde verilecek"
+          - "&7item veya komut ödüllerini ayarlar."
+          - " "
+          - "&e» &7Düzenlemek için tıkla"
+  mob-list-menu:
+    title: "&8ProMobBoss &7» &0Mob Listesi"
+    add-new-mob: "&a&l[+] Yeni Mob Ekle"
+    no-mobs: "&cHiç Mob Yapılandırılmamış."
+    add-new-mob-command: "{prefix}&aYeni mob oluşturmak için: &e/mb mob add <isim>"
+    add-new-mob-lore:
+      - "&7Komutla yeni bir mob oluştur:"
+      - "&e/mb mob add <isim>"
+    item:
+      lore-world: "&7Dünya: &f%world%"
+      lore-interval: "&7Doğma Sıklığı: &f%interval% dk"
+      lore-max: "&7Maks. Sayı: &f%max_alive%"
+      lore-edit: "&e» &aDüzenlemek &7için &eSol Tıkla"
+      lore-delete: "&e» &cSİlmek &7için &eSağ Tıkla"
+  mob-editor:
+    title: "&8Mob Düzenleyici &7» &0%mob_name%"
+    world-set: "{prefix}&aSpawn dünyası &b%world% &aolarak ayarlandı."
+    string-set: "{prefix}&a&b%setting% &abaşarıyla '&f%value%&r&a' olarak ayarlandı."
+    numeric-set: "{prefix}&a&b%setting% &abaşarıyla &f%value% &aolarak ayarlandı."
+    prompt-string: "{prefix}&eLütfen &b%setting% &eiçin yeni bir metin girin. &7(&6%cancel_keyword% &7yazarak işlemi durdurabilirsiniz.)"
+    prompt-numeric: "{prefix}&eLütfen &b%setting% &eiçin yeni bir sayı girin. &7(&6%cancel_keyword% &7yazarak işlemi durdurabilirsiniz.)"
+    invalid-range: "{prefix}&cDeğer &b%min% &cile &b%max% &carasında olmalıdır."
+    item:
+      name:
+        title: "&bİsmi Değiştir"
+        lore:
+          - "&7Mevcut İsim: &f%name%"
+          - "&e» Değiştirmek için tıkla"
+      status:
+        title-enabled: "&aDurum: Aktif"
+        lore-enabled:
+          - "&7Bu mob'un otomatik spawn olması aktif."
+          - "&e» Kapatmak için tıkla"
+        title-disabled: "&cDurum: Devre Dışı"
+        lore-disabled:
+          - "&7Bu mob şu anda spawn olmayacak."
+          - "&e» Aktifleştirmek için tıkla"
+      mob-type:
+        title: "&9&lMob Tipi Ayarları"
+        lore:
+          - "&7Mob'un canı, hasarı, zırhı"
+          - "&7ve görünüşünü ayarlamanızı sağlar."
+          - " "
+          - "&7Mevcut Kaynak: &f%source%"
+          - " "
+          - "&e» &7Düzenlemek için tıkla"
+      rewards:
+        title: "&6Ödülleri Düzenle"
+        lore:
+          - "&7Bu mob kesildiğinde verilecek ödülleri ayarlar."
+          - "&e» Düzenlemek için tıkla"
+      spawn-world:
+        title: "&aSpawn Dünyası"
+        lore:
+          - "&7Bu mob'un hangi dünyada spawn olacağını belirler."
+          - " "
+          - "&7Mevcut: &f%world%"
+          - " "
+          - "&e» Değiştirmek için tıkla"
+      interval:
+        title: "&eSpawn Sıklığı (Dakika)"
+        lore:
+          - "&7Ne kadar sürede bir spawn denemesi yapılacağını belirler."
+          - " "
+          - "&7Mevcut: &f%minutes% dakika"
+          - " "
+          - "&e» Değiştirmek için tıkla"
+      max-alive:
+        title: "&cMaksimum Sayı"
+        lore:
+          - "&7Dünyada bu mob'dan aynı anda en fazla kaç tane olabileceğini belirler."
+          - " "
+          - "&7Mevcut: &f%count%"
+          - " "
+          - "&e» Değiştirmek için tıkla"
+  world-selector:
+    title: "&8Dünya Seçici"
+    lore:
+      - "&7Bu dünyayı mob'un spawn"
+      - "&7alanı olarak ayarlamak için tıkla."
+  time-selector-menu:
+    title: "&8Zamanlama Ayarları"
+    prompt-time: "{prefix}&eLütfen boss için doğma saatini &bHH:mm &eformatında yazın. &7(&6%cancel_keyword% &7yazarak işlemi durdurabilirsiniz.)"
+    prompt-interval: "{prefix}&eLütfen boss'un kaç &bdakikada bir &edoğacağını yazın. &7(&6%cancel_keyword% &7yazarak işlemi durdurabilirsiniz.)"
+    time-set: "{prefix}&aDoğma saati &b%time% &aolarak ayarlandı."
+    interval-set: "{prefix}&aTekrarlama aralığı &b%minutes% dakika &aolarak ayarlandı."
+    invalid-interval: "{prefix}&cAralık 0'dan büyük bir sayı olmalıdır."
+    invalid-time-format: "{prefix}&cGeçersiz saat formatı! Lütfen &bHH:mm &cformatını kullanın."
+    item:
+      disabled-lore:
+        - "&cBu ayar, zamanlama tipi"
+        - "&c'Tekrarlı' olduğu için devre dışı."
+      day:
+        title: "&b&lDoğacağı Gün"
+        lore:
+          - "&7Boss'un doğacağı günü seçin."
+          - "&7Tıklayarak günler arasında geçiş yaparsınız."
+      time:
+        title: "&e&lDoğacağı Saat"
+        lore:
+          - "&7Mevcut Saat: &f%time%"
+          - " "
+          - "&e» &7Değiştirmek için tıkla"
+      interval:
+        title: "&e&lTekrarlama Aralığı"
+        lore:
+          - "&7Mevcut Aralık: &f%minutes% dakika"
+          - " "
+          - "&e» &7Değiştirmek için tıkla"
+      type:
+        name-scheduled: "&aTip: Belirli Zaman"
+        lore-scheduled:
+          - "&7Boss, haftanın belirli bir"
+          - "&7gününde ve saatinde doğar."
+          - " "
+          - "&e» &bTekrarlı'ya &egeçmek için tıkla"
+        name-recurring: "&bTip: Tekrarlı"
+        lore-recurring:
+          - "&7Boss, belirlenen dakika aralığıyla"
+          - "&7sürekli olarak yeniden doğar."
+          - " "
+          - "&e» &aBelirli Zaman'a &egeçmek için tıkla"
+  vanilla-editor:
+    title: "&8Özel Mob Düzenleyici"
+    prompt-numeric: "{prefix}&eLütfen &b%setting% &eiçin yeni bir sayısal değer girin. &7(&6%cancel_keyword% &7yazarak işlemi durdurabilirsiniz.)"
+    value-set: "{prefix}&a&b%setting% &abaşarıyla &e%value% &aolarak ayarlandı."
+    invalid-number-format: "{prefix}&cBu geçerli bir sayı değil."
+    invalid-range: "{prefix}&cDeğer &b%min% &cile &b%max% &carasında olmalıdır."
+    invalid-range-positive: "{prefix}&cDeğer 0'dan büyük bir sayı olmalıdır."
+    equipment-set: "{prefix}&a&b%type% &aekipmanı başarıyla &e%item% &aolarak ayarlandı."
+    equipment-removed: "{prefix}&a&b%type% &aekipmanı başarıyla kaldırıldı."
+    item:
+      entity-type:
+        title: "&b&lYaratık Tipi"
+        lore:
+          - "&7Yaratığın temel görünümünü belirler."
+          - "&7Mevcut Tip: &f%type%"
+          - "&e» Değiştirmek için tıkla"
+      health:
+        title: "&c&lCan Ayarı"
+        lore:
+          - "&7Yaratığın can puanını belirler."
+          - "&7Mevcut: &f%value% HP"
+          - "&e» Değiştirmek için tıkla"
+      damage:
+        title: "&4&lHasar Ayarı"
+        lore:
+          - "&7Yaratığın hasarını belirler."
+          - "&7Mevcut: &f%value% DMG"
+          - "&e» Değiştirmek için tıkla"
+      equipment:
+        title-mainhand: "&bAna El Ekipmanı"
+        title-helmet: "&bMiğfer"
+        title-chestplate: "&bGöğüslük"
+        title-leggıngs: "&bPantolon"
+        title-boots: "&bBot"
+        title-weapon: "&bSilah"
+        lore:
+          - "&7Mevcut Ekipman:"
+          - "  &f%item%"
+          - " "
+          - "&e» &aEkipman listesini açmak için Sol Tık"
+          - "&e» &cEkipmanı değiştirmek için Sağ Tık"
+          - "&e» &bBüyü eklemek için Shift + Sol Tık"
+        lore-select: "&e» &aEkipman seçmek için Sol Tık"
+        lore-enchant: "&e» &aBüyü eklemek için Shift + Sol Tık"
+        lore-equip: "&e» &cEkipmanı değiştirmek için Sağ Tık."
+  equipment-selector:
+    title: "&8Ekipman Seçici &7» &0%type%"
+    item-selected: "{prefix}&aEkipman &e%item% &aolarak ayarlandı."
+    lore:
+      - "&7Bu ekipmanı seçmek için tıkla."
+  mob-type-selection:
+    title: "&8Mob Tipi Ayarları"
+    mythicmobs-not-found: "{prefix}&cBu menüyü açmak için MythicMobs yüklü olmalıdır."
+    mythicmobs-not-found-toggle: "{prefix}&cMythicMobs yüklü olmadan kaynak değiştirilemez."
+    toggle-item:
+      name-is-mythic: "&bAktif Kaynak: &lMythicMobs"
+      lore-is-mythic:
+        - "&7Kaynak olarak MythicMobs"
+        - "&7eklentisindeki bir yaratığı kullanır."
+        - "&e» &aÖzel Mob'a &egeçmek için tıkla"
+      name-is-vanilla: "&aAktif Kaynak: &lÖzel Mob"
+      lore-is-vanilla:
+        - "&7Kaynak olarak bu eklentide sizin"
+        - "&7özelleştirdiğiniz bir yaratığı kullanır."
+        - "&e» &bMythicMobs'a &egeçmek için tıkla"
+    edit-mythicmobs-item:
+      name: "&bMythicMobs Seçim Menüsü"
+      lore:
+        - "&7Hangi MythicMob'un"
+        - "&7kullanılacağını seçmek için aç."
+        - "&e» &7Menüyü açmak için tıkla"
+      name-disabled: "&cMythicMobs Devre Dışı"
+    edit-vanilla-item:
+      name: "&aÖzel Mob Düzenleyici"
+      lore:
+        - "&7Mob'un can, hasar, zırh gibi"
+        - "&7özelliklerini özelleştirmek için aç."
+        - "&e» &7Menüyü açmak için tıkla"
+  mythicmob-selector:
+    title: "&8MythicMob Seçici"
+    mob-selected: "{prefix}&aMob kaynağı &e%mob% &aolarak ayarlandı."
+    no-mobs-found:
+      title: "&cHiç MythicMobs Bulunamadı"
+      lore:
+        - "&7Lütfen MythicMobs/Mobs"
+        - "&7klasörünüzü kontrol edin."
+    lore:
+      - " "
+      - "&e» &7Bu mob'u seçmek için tıkla."
+  reward-list-menu:
+    title: "&8Ödüller &7» &c%name%"
+    add-new: "&a&l[+] Yeni Ödül Ekle"
+    add-new-lore:
+      - "&7Bu varlık için yeni bir"
+      - "&7ödül oluşturur."
+    no-rewards: "&cBu varlık için hiç ödül ayarlanmamış."
+    item-lore:
+      prefix: "&8&m------------------------"
+      chance: "&7Şans: &e%chance%%"
+      target: "&7Hedef: &b%target%"
+      click-to-edit: "&e» &7Ayarları düzenlemek için tıkla."
+    command-name: "&eKomut Ödülü"
+    command-lore:
+      - "&7Tip: &fCOMMAND"
+      - "&7Komut: &b/%command%"
+      - "&7Şans: &e%chance%%"
+      - "&7Hedef: &b%target%"
+      - " "
+      - "&e» &7Ayarları düzenlemek için tıkla."
+  reward-type-selector:
+    title: "&8Yeni Ödül Tipi Seçin"
+    item:
+      name: "&bItem Ödülü"
+      lore:
+        - "&7Oyuncuya bir eşya verir."
+        - "&e» &7Seçmek için tıkla"
+    command:
+      name: "&eKomut Ödülü"
+      lore:
+        - "&7Bir komut çalıştırılır."
+        - "&e» &7Seçmek için tıkla"
+  reward-config-menu:
+    title: "&8Ödül Ayarları"
+    reward-deleted: "{prefix}&aÖdül başarıyla silindi."
+    prompt-chance: "{prefix}&eLütfen ödülün düşme şansını girin (0-100). &7(&6%cancel_keyword% &7yazarak işlemi durdurabilirsiniz.)"
+    prompt-command: "{prefix}&eLütfen çalıştırılacak komutu girin (/ olmadan, %player% kullanılabilir). &7(&6%cancel_keyword% &7yazarak işlemi durdurabilirsiniz.)"
+    prompt-item: "{prefix}&eÖdül olarak elinizdeki eşya ayarlanacak. &7(&6%cancel_keyword% &7yazarak işlemi durdurabilirsiniz.)"
+    invalid-chance-range: "{prefix}&cŞans 0 ile 100 arasında olmalıdır."
+    no-item-in-hand: "{prefix}&cÖdül olarak ayarlamak için elinizde bir eşya olmalı."
+    item-set: "{prefix}&aÖdül item'ı başarıyla elinizdeki eşya ile değiştirildi."
+    command-set: "{prefix}&aÖdül komutu başarıyla &e/%command% &aolarak ayarlandı."
+    chance-set: "{prefix}&aŞans &e%chance%% &aolarak ayarlandı."
+    target:
+      name: "&bHedefi Değiştir"
+      lore:
+        - "&7Bu ödülün kime verileceğini ayarlar."
+        - "&7Mevcut: &f%target%"
+        - "&e» &7Değiştirmek için tıkla"
+    chance:
+      name: "&eDüşme Şansını Ayarla"
+      lore:
+        - "&7Ödülün düşme ihtimalini belirler."
+        - "&7Mevcut: &f%chance%%"
+        - "&e» &7Değiştirmek için tıkla"
+    value:
+      name-item: "&aÖdül Item'ı Ayarla"
+      lore-item:
+        - "&7Ödül eşyasını, elinizdeki"
+        - "&7eşya ile değiştirmek için tıkla."
+        - " "
+        - "&cBu işlem elinizdeki item'ı"
+        - "&cödül olarak ayarlar."
+        - " "
+        - "&e» &7Ayarlamak için tıkla"
+      name-command: "&eKomutu Düzenle"
+      lore-command:
+        - "&7Çalıştırılacak olan komutu"
+        - "&7sohbete yazarak düzenle."
+        - " "
+        - "&e» &7Düzenlemek için tıkla"
+      display-lore-command:
+        - "&7Bu komutun ayarlarını düzenliyorsunuz."
+        - "&7Mevcut: &f/%command%"
+    delete:
+      name: "&c&lBu Ödülü Sil"
+      lore:
+        - "&cBu ödülü kalıcı olarak sil."
+  enchant-selector:
+    title: "&8Büyü Seçici &7» &0%item%"
+    prompt-level: "{prefix}&eLütfen &b%enchant% &eiçin bir seviye girin. (Kaldırmak için &c0&e)"
+    enchant-set: "{prefix}&b%enchant% &abüyüsü &e%level% &aseviyesine ayarlandı."
+    enchant-removed: "{prefix}&b%enchant% &abüyüsü kaldırıldı."
+    invalid-level: "{prefix}&cGeçersiz seviye! Bu büyü için maksimum seviye: &b%max_level%"
+    item:
+      lore:
+        - "&7Bu büyünün seviyesini ayarlar."
+        - "&7Mevcut Seviye: &f%level%"
+        - " "
+        - "&e» &7Değiştirmek için tıkla"
+
+# --- HAFTANIN GÜNLERİ ---
+days:
+  everyday: "Her Gün"
+  monday: "Pazartesi"
+  tuesday: "Salı"
+  wednesday: "Çarşamba"
+  thursday: "Perşembe"
+  friday: "Cuma"
+  saturday: "Cumartesi"
+  sunday: "Pazar"
+
+# --- PLACEHOLDER METİNLERİ ---
+placeholders:
+  not-available: "N/A"
+  loading: "Yükleniyor..."
+  not-found-rank: "Yok"
+  event-none: "Etkinlik Yok"
+  format-days: "&e%days%G %hours%S"
+  format-hours: "&e%hours%:%minutes%:%seconds%"
+  format-minutes: "&e%minutes%:%seconds%"

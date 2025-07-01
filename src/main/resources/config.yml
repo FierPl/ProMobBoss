@@ -1,0 +1,41 @@
+# ================================================================= #
+#                     ProMobBoss - Main Configuration               #
+#     Core settings for the plugin are configured in this file.     #
+# ================================================================= #
+
+# The general prefix used in most plugin messages and logs.
+# Can be referenced in language files with {prefix}.
+plugin-prefix: "&8[&bPro&3MB&8] &r"
+
+# The default language file to load from the 'languages' folder.
+# A .yml file with this name must exist (e.g., "en_US.yml", "tr_TR.yml").
+language: "en_US"
+
+# Storage settings for persistent player data (kill counts, etc.).
+storage:
+  # The type of storage to use.
+  # Available options:
+  #   - "SQLITE" (Recommended default): Creates a single .db file in the plugin folder. No external setup required.
+  #   - "MYSQL" (For advanced users or networks): Connects to an external MySQL/MariaDB database server.
+  type: "SQLITE"
+
+  # These settings are only used if 'storage.type' is set to "MYSQL".
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "promobboss"
+    username: "root"
+    password: "password"
+
+    # Advanced connection pool (HikariCP) settings.
+    # The default values are generally sufficient for most servers.
+    pool-settings:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000 # 30 seconds
+      idle-timeout: 600000     # 10 minutes
+      max-lifetime: 1800000    # 30 minutes
+
+# Should the plugin check for new updates on startup?
+# This will print a message in the console if a new version is available.
+update-checker: true

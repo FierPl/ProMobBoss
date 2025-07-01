@@ -1,0 +1,39 @@
+# Configuration for the 'SkeletalKing' boss
+enabled: true
+display-name: "&c&lSkeletal King"
+spawn-location:
+  world: "world_bossarena"
+  x: 150.5
+  y: 64.0
+  z: -275.5
+  yaw: 90.0
+  pitch: 0.0
+schedule:
+  type: "SCHEDULED" # SCHEDULED or RECURRING
+  # For SCHEDULED type
+  day: "FRIDAY" # MONDAY, TUESDAY, ..., SUNDAY, EVERYDAY
+  time: "20:00:00" # HH:mm:ss format
+  # For RECURRING type (Her Saat)
+  # interval-minutes: 60 # Spawns every 60 minutes
+mob-type-source: "MYTHIC_MOBS" # MYTHIC_MOBS or VANILLA_CUSTOM
+mythic-mob-name: "SkeletalKingMM" # Name of the mob in MythicMobs/mobs.yml
+# This section is used only if mob-type-source is VANILLA_CUSTOM
+vanilla-mob-settings:
+  type: "WITHER_SKELETON" # Minecraft entity type
+  health: 1000.0
+  damage: 25.0
+  equipment:
+    main-hand: "DIAMOND_SWORD"
+    helmet: "NETHERITE_HELMET"
+    chestplate: "NETHERITE_CHESTPLATE"
+    leggings: "NETHERITE_LEGGINGS"
+    boots: "NETHERITE_BOOTS"
+rewards:
+  - type: "COMMAND" # COMMAND or ITEM
+    chance: 100.0 # Percentage (0-100)
+    target: "TOP_DAMAGE" # KILLER, TOP_DAMAGE, RANDOM_DAMAGER
+    command: "eco give %player% 1000"
+  - type: "ITEM"
+    chance: 50.0
+    target: "KILLER"
+    # Items are stored internally, not listed here. They are edited via the GUI.

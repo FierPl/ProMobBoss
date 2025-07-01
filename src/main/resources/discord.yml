@@ -1,0 +1,99 @@
+# ================================================================= #
+#                ProMobBoss - Discord Webhook Settings              #
+# ================================================================= #
+
+# Set to 'false' to completely disable this feature.
+enabled: false
+
+# Paste your webhook URLs from your Discord channels here.
+webhooks:
+  # The webhook to be used by default if not specified otherwise.
+  default: "PASTE_YOUR_WEBHOOK_URL_HERE"
+  # Example for another channel:
+  # staff-logs: "PASTE_ANOTHER_WEBHOOK_URL_HERE"
+
+# ================================================================= #
+#                      MESSAGE TEMPLATES                            #
+# ================================================================= #
+# Placeholders:
+#   - Boss Spawn: %boss_name%, %boss_displayname%, %world%, %location_x%, %location_y%, %location_z%
+#   - Boss Kill:  (In addition to the above) %killer_name%
+# ================================================================= #
+
+messages:
+  # Message sent when a boss spawns.
+  boss-spawn:
+    enabled: false
+    webhook: "default"
+
+    # Text that appears outside and above the embed. Used for pings like @everyone.
+    content: "@everyone"
+
+    embed:
+      # The color of the stripe on the left side of the embed. Use decimal color codes.
+      color: 15728640 # Vibrant Orange
+
+      # The author block at the top of the embed.
+      author:
+        name: "YOUR_SERVER_NAME"
+        # URL for your server's logo. Can be left empty.
+        icon_url: "https://cdn.iconscout.com/icon/free/png-256/free-minecraft-sword-2752152-2284900.png"
+
+      # A small image appearing in the top-right corner of the embed.
+      thumbnail:
+        url: "https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/c5/Dragon_Fireball_JE2_BE2.png"
+
+      title: "**%boss_displayname%** Has Appeared!"
+      description: "> Danger approaches! A mighty entity has descended upon the battlefield. Unite your strength to defeat it!"
+
+      # Fields provide structured information.
+      fields:
+        - name: "📍 World"
+          value: "`%world%`"
+          inline: true # Should this field appear next to other inline fields?
+        - name: "🧭 Coordinates"
+          value: "`X: %location_x%, Y: %location_y%, Z: %location_z%`"
+          inline: true
+        - name: "⭐ Threat Level"
+          value: "`Challenging`" # This could be a placeholder like %boss_level% in the future.
+          inline: true
+
+      # A large image displayed at the bottom of the embed.
+      image:
+        url: "https://i.imgur.com/your-server-banner.png" # URL of a server banner or a generic battle image.
+
+      # Small text at the very bottom.
+      footer:
+        text: "ProMobBoss | Event Time"
+      # Automatically adds the time the message was sent.
+      timestamp: true
+
+  # Message sent when a boss is killed.
+  boss-kill:
+    enabled: false
+    webhook: "default"
+    content: "" # No ping needed for a victory message.
+
+    embed:
+      color: 5763719 # Vibrant Green
+      author:
+        name: "VICTORY DECLARED"
+        icon_url: "https://cdn-icons-png.flaticon.com/512/1039/1039838.png"
+
+      thumbnail:
+        url: "https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f9/Diamond_Sword_JE3_BE3.png"
+
+      title: "**%boss_displayname%** Has Been Defeated!"
+      description: "> The hero, **%killer_name%**, has dealt the final blow, achieving victory and saving the realm!"
+
+      fields:
+        - name: "🏆 Slain By"
+          value: "`%killer_name%`"
+          inline: false
+
+      image:
+        url: "" # A large image might not be necessary for a victory message.
+
+      footer:
+        text: "ProMobBoss | Moment of Triumph"
+      timestamp: true

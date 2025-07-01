@@ -1,0 +1,53 @@
+# ================================================================= #
+#                 ProMobBoss - Advanced Settings                    #
+#   This file contains detailed settings for gameplay and systems.  #
+# ================================================================= #
+
+# Boss Scheduler & Announcement Settings
+boss-scheduler:
+  # How often the scheduler checks for upcoming boss spawns.
+  # Value is in ticks (20 ticks = 1 second).
+  # Lower values are more precise but use more resources. 20 is ideal for per-second checks.
+  check-interval: 20
+
+  announcements:
+    # A list of announcements to be broadcasted before a boss spawns.
+    # 'time': The time in seconds before the spawn.
+    # 'message-path': The path to the message in your language file (e.g., en_US.yml).
+    # You can add or remove as many announcements as you like.
+    before-spawn:
+      - { time: 300, message-path: "announcements.boss.five-minutes" }
+      - { time: 60, message-path: "announcements.boss.sixty-seconds" }
+      - { time: 30, message-path: "announcements.boss.thirty-seconds" }
+      - { time: 10, message-path: "announcements.boss.ten-seconds" }
+
+    # Countdown that starts when 5 (or less) seconds are remaining.
+    countdown:
+      enabled: true
+      # At which second the countdown should start.
+      start-from: 5
+      # The message path in your language file. %time% will be replaced with the remaining seconds.
+      message-path: "announcements.boss.countdown"
+
+    # The message broadcasted at the exact moment the boss spawns.
+    on-spawn:
+      enabled: true
+      message-path: "announcements.boss.spawned"
+
+# Mob Spawner Settings (This section is for the automatic mob spawning system in worlds)
+# We will implement this in a future phase.
+mob-spawner:
+  # Should the automatic mob spawner be enabled?
+  enabled: true
+  # How often the spawner attempts to spawn mobs in the world (in seconds).
+  spawn-interval-seconds: 60
+
+# Leaderboard Settings
+leaderboard:
+  # How often should holograms using leaderboard placeholders be updated (in seconds)?
+  hologram-update-interval: 300 # 5 minutes
+
+  # How long should the fetched leaderboard data be cached in memory to avoid frequent database queries (in seconds)?
+  cache-duration: 600 # 10 minutes
+
+# Other system settings can be added here in the future.

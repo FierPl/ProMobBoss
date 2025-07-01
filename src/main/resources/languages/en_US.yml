@@ -1,0 +1,541 @@
+# ================================================================= #
+#                 ProMobBoss English Language File (US)             #
+#               Color codes are used with the '&' character.        #
+#         The {prefix} variable is replaced with the one in config.yml. #
+#      For descriptions (lore), use YAML's list format.             #
+# ================================================================= #
+
+# Main Plugin Prefix
+prefix: "&8[&bPro&3MB&8] &r"
+
+# Dummy message, used for formatting only, do not touch.
+dummy: "%message%"
+
+unknown-command: "&cThere is no such command."
+
+# --- GENERAL MESSAGES ---
+general:
+  reload-start: "{prefix}&eReloading the plugin..."
+  reload-success: "{prefix}&aPlugin reloaded successfully."
+  no-permission: "{prefix}&cYou do not have permission to use this command."
+  player-only-command: "{prefix}&cThis command can only be used by a player."
+  inventory-full-drop: "{prefix}&cYour inventory was full, the reward was dropped on the ground!"
+  update-checker:
+    new-version-available: "{prefix}&aA new version of ProMobBoss is available! &7(Current: &fv%current_version%&7, Latest: &bV%latest_version%&7)"
+    download-link: "{prefix}&aYou can download the latest version from here: &e%link%"
+  status-active: "&aActive"
+  status-disabled: "&cDisabled"
+  cancel-keyword: "cancel"
+
+# --- COMMAND MESSAGES ---
+commands:
+  unknown-command: "{prefix}&cUnknown command. Use &e/mb help &cfor a list of commands."
+  invalid-usage: "{prefix}&cInvalid usage. Correct format: &e%usage%"
+  help:
+    header: "&8&m------------&r &b&lProMobBoss Help Menu &8&m------------"
+    format: "&3%command% &8- &7%description%"
+    footer: "&8&m------------------------------------------------"
+    description: "Lists all available commands."
+    syntax: "/mb help"
+  reload:
+    description: "Reloads all plugin configurations."
+    syntax: "/mb reload"
+  menu:
+    description: "Opens the main management menu."
+    syntax: "/mb menu"
+  boss:
+    description: "Creates, deletes, or spawns a boss."
+    syntax: "/mb boss <add|remove|spawn> <name>"
+  mob:
+    description: "Creates, deletes, or spawns a custom mob."
+    syntax: "/mb mob <add|remove|spawn> <name>"
+  egg:
+    description: "Gives a spawn egg for a boss or a mob."
+    syntax: "/mb egg <boss|mob> <name>"
+
+# --- SYSTEM MESSAGES ---
+system:
+  boss-killed: "{prefix}&6%player% &ehas slain the mighty &c&l%boss_name%&e!"
+  boss-location-not-set: "{prefix}&cThe spawn location for boss &e%boss_name% &cis not set."
+  boss-spawn-success: "{prefix}&aBoss &e%boss_name% &ahas been successfully spawned."
+  mob-spawn-success: "{prefix}&aMob &e%mob_name% &ahas been successfully spawned at your location."
+  boss-already-exists: "{prefix}&cBoss &e%name% &calready exists."
+  boss-not-found: "{prefix}&cBoss &e%name% &cnot found."
+  boss-created: "{prefix}&aNew boss &e%name% &ahas been successfully created. You can configure it in the menu."
+  boss-removed: "{prefix}&aBoss &e%name% &ahas been successfully removed."
+  mob-created: "{prefix}&aNew custom mob &e%name% &ahas been successfully created."
+  mob-already-exists: "{prefix}&cCustom mob &e%name% &calready exists."
+  mob-not-found: "{prefix}&cCustom mob &e%name% &cnot found."
+  mob-removed: "{prefix}&aCustom mob &e%name% &ahas been successfully removed."
+  egg-received: "{prefix}&aAn egg for &e%name% &ahas been added to your inventory."
+  entity-not-found: "{prefix}&cNo &e%type% &cnamed &e%name% &cwas found."
+
+# --- ANNOUNCEMENTS ---
+announcements:
+  boss:
+    five-minutes: "{prefix}&c&l%boss_name% &ewill descend upon the battlefield in &c5 minutes&e!"
+    sixty-seconds: |-
+      &8&m+---------------------------------------------------+
+      &r 
+      &c&l                     ATTENTION!
+      &r 
+      &6&l%boss_name% &ewill appear in &b1 Minute &ein the &b%world% &eworld!
+      &r 
+      &8&m+---------------------------------------------------+
+    thirty-seconds: "{prefix}&c&l%boss_name% &ewill appear in &c30 seconds&e!"
+    ten-seconds: "{prefix}&c&l%boss_name% &eis coming in &c10 seconds&e! Get ready!"
+    countdown: "{prefix}&6&l%boss_name% &eis spawning in &c&l%time%..."
+    spawned: "{prefix}&4&l%boss_name% &chas spawned! &eLet the battle begin!"
+
+# --- MENU (GUI) TEXTS ---
+gui:
+  buttons:
+    back: "&c« Back"
+    back-lore:
+      - "&7Returns to the previous menu."
+    close: "&cClose"
+    close-lore:
+      - "&7Closes the menu."
+    previous-page: "&a< Previous Page"
+    previous-page-lore:
+      - "&7Goes to the previous page."
+    next-page: "&aNext Page >"
+    next-page-lore:
+      - "&7Goes to the next page."
+    page-info: "&ePage: %page%"
+    page-info-lore:
+      - "&7Your current page number."
+    confirm: "&a&lCONFIRM"
+    confirm-lore:
+      - "&7Click to confirm this action."
+    cancel: "&c&lCANCEL"
+    cancel-lore:
+      - "&7Click to cancel this action."
+  main-menu:
+    title: "&8ProMobBoss &7» &0Main Menu"
+    boss-button:
+      name: "&c&lBoss Management"
+      lore:
+        - "&7Click to manage scheduled,"
+        - "&7custom bosses."
+    mobs-button:
+      name: "&a&lMob Management"
+      lore:
+        - "&7Click to manage custom mobs"
+        - "&7that spawn automatically in worlds."
+  boss-list-menu:
+    title: "&8ProMobBoss &7» &0Boss List"
+    add-new-boss: "&a&l[+] Add New Boss"
+    add-new-boss-command: "{prefix}&aTo create a new boss: &e/mb boss add <name>"
+    boss-not-found-refresh: "&cThis boss no longer exists. Refreshing menu."
+    no-bosses-configured: "&cNo bosses have been configured."
+    location-format: "&fWorld: %world%, X: %x%, Y: %y%, Z: %z%"
+    add-new-boss-lore:
+      - "&7Create a new boss with the command:"
+      - "&e/mb boss add <name>"
+    item:
+      lore-status: "&7Status: %status%"
+      lore-location: "&7Location: %location%"
+      lore-edit: "&e» &aLeft-Click &7to &aEdit"
+      lore-delete: "&e» &cRight-Click &7to &cDelete"
+  delete-confirm-menu:
+    title: "&8Are you sure? &7» &c%name%"
+    item:
+      name: "&c&lDelete entity: %name%"
+      lore:
+        - "&4WARNING! &cThis action is irreversible."
+        - "&cAll data will be permanently deleted."
+  boss-editor-menu:
+    title: "&8Editing &7- &c%boss_name%"
+    prompt-name: "{prefix}&ePlease type a new name for the boss in chat. &7(&6%cancel_keyword% &7to cancel.)"
+    prompt-cancelled: "{prefix}&cOperation cancelled."
+    name-set: "{prefix}&aBoss name successfully set to '&r%name%&r&a'."
+    location-set: "{prefix}&aBoss location successfully set to your current location."
+    item:
+      info-panel:
+        title: "&c&l%boss_name%"
+        lore:
+          - "&m-----------------------------"
+          - "&7A quick summary of the"
+          - "&7boss's current settings."
+          - " "
+          - "&c● &7Status: %status%"
+          - "&c● &7Location: %location%"
+          - "&c● &7Mob Type: &f%mob_type%"
+          - "&c● &7Spawn Day: &f%day%"
+          - "&c● &7Spawn Time: &f%time%"
+          - "&m-----------------------------"
+      name:
+        title: "&b&lName Settings"
+        lore:
+          - "&7Changes the boss's name"
+          - "&7that appears in-game."
+          - " "
+          - "&7Current: &f%name%"
+          - " "
+          - "&e» &7Click to change"
+      status:
+        title-enabled: "&a&lBoss Active"
+        lore-enabled:
+          - "&7The boss is currently set to"
+          - "&7spawn when its time comes."
+          - " "
+          - "&e» &cClick &7to &cDisable"
+        title-disabled: "&c&lBoss Disabled"
+        lore-disabled:
+          - "&7The boss will not spawn, even"
+          - "&7if its time comes."
+          - " "
+          - "&e» &aClick &7to &aEnable"
+      location:
+        title: "&d&lLocation Settings"
+        lore:
+          - "&7Determines where the boss will spawn."
+          - "&7Clicking this sets the location"
+          - "&7to &6your current position&7."
+          - " "
+          - "&e» &7Click to update"
+      time:
+        title: "&e&lSchedule Settings"
+        lore:
+          - "&7Set the day and time"
+          - "&7for the boss to spawn."
+          - " "
+          - "&e» &7Click to edit"
+      mob-type:
+        title: "&9&lMob Type Settings"
+        lore:
+          - "&7Configure the boss's health,"
+          - "&7damage, armor, and appearance."
+          - " "
+          - "&e» &7Click to edit"
+      rewards:
+        title: "&6&lReward Settings"
+        lore:
+          - "&7Set the item/command rewards"
+          - "&7given when the boss is defeated."
+          - " "
+          - "&e» &7Click to edit"
+  mob-list-menu:
+    title: "&8ProMobBoss &7» &0Mob List"
+    add-new-mob: "&a&l[+] Add New Mob"
+    no-mobs: "&cNo Mobs Configured."
+    add-new-mob-command: "{prefix}&aTo create a new mob: &e/mb mob add <name>"
+    add-new-mob-lore:
+      - "&7Create a new mob with the command:"
+      - "&e/mb mob add <name>"
+    item:
+      lore-world: "&7World: &f%world%"
+      lore-interval: "&7Spawn Interval: &f%interval% min"
+      lore-max: "&7Max Alive: &f%max_alive%"
+      lore-edit: "&e» &aLeft-Click &7to &aEdit"
+      lore-delete: "&e» &cRight-Click &7to &cDelete"
+  mob-editor:
+    title: "&8Mob Editor &7» &0%mob_name%"
+    world-set: "{prefix}&aSpawn world set to &b%world%&a."
+    string-set: "{prefix}&a&b%setting% &asuccessfully set to '&f%value%&r&a'."
+    numeric-set: "{prefix}&a&b%setting% &asuccessfully set to &f%value%&a."
+    prompt-string: "{prefix}&ePlease enter a new text for &b%setting%&e. &7(&6%cancel_keyword% &7to cancel)"
+    prompt-numeric: "{prefix}&ePlease enter a new number for &b%setting%&e. &7(&6%cancel_keyword% &7to cancel)"
+    invalid-range: "{prefix}&cValue must be between &b%min% &cand &b%max%&c."
+    item:
+      name:
+        title: "&bChange Name"
+        lore:
+          - "&7Current Name: &f%name%"
+          - "&e» Click to change"
+      status:
+        title-enabled: "&aStatus: Active"
+        lore-enabled:
+          - "&7This mob will spawn automatically."
+          - "&e» Click to disable"
+        title-disabled: "&cStatus: Disabled"
+        lore-disabled:
+          - "&7This mob will not spawn."
+          - "&e» Click to enable"
+      mob-type:
+        title: "&9&lMob Type Settings"
+        lore:
+          - "&7Configure the mob's health,"
+          - "&7damage, armor, and appearance."
+          - " "
+          - "&7Current Source: &f%source%"
+          - " "
+          - "&e» Click to edit"
+      rewards:
+        title: "&6Edit Rewards"
+        lore:
+          - "&7Set the rewards given"
+          - "&7when this mob is defeated."
+          - "&e» Click to edit"
+      spawn-world:
+        title: "&aSpawn World"
+        lore:
+          - "&7Determines which world this mob"
+          - "&7will spawn in."
+          - " "
+          - "&7Current: &f%world%"
+          - " "
+          - "&e» Click to change"
+      interval:
+        title: "&eSpawn Interval (Minutes)"
+        lore:
+          - "&7Determines how often a"
+          - "&7spawn attempt is made."
+          - " "
+          - "&7Current: &f%minutes% minutes"
+          - " "
+          - "&e» Click to change"
+      max-alive:
+        title: "&cMaximum Alive"
+        lore:
+          - "&7The max number of this mob"
+          - "&7that can be alive at once."
+          - " "
+          - "&7Current: &f%count%"
+          - " "
+          - "&e» Click to change"
+  world-selector:
+    title: "&8World Selector"
+    lore:
+      - "&7Click to set this world as the"
+      - "&7spawn area for the mob."
+  time-selector-menu:
+    title: "&8Schedule Settings"
+    prompt-time: "{prefix}&ePlease type the spawn time in &bHH:mm &eformat. &7(&6%cancel_keyword% &7to cancel)"
+    prompt-interval: "{prefix}&ePlease type how often the boss should spawn in &bminutes&e. &7(&6%cancel_keyword% &7to cancel)"
+    time-set: "{prefix}&aSpawn time set to &b%time%&a."
+    interval-set: "{prefix}&aRecurrence interval set to &b%minutes% minutes&a."
+    invalid-interval: "{prefix}&cInterval must be a number greater than 0."
+    invalid-time-format: "{prefix}&cInvalid time format! Please use &bHH:mm &cformat."
+    item:
+      disabled-lore:
+        - "&cThis setting is disabled because"
+        - "&cthe schedule type is 'Recurring'."
+      day:
+        title: "&b&lSpawn Day"
+        lore:
+          - "&7Choose the day of the week for the spawn."
+          - "&7Click to cycle through days."
+      time:
+        title: "&e&lSpawn Time"
+        lore:
+          - "&7Current Time: &f%time%"
+          - " "
+          - "&e» Click to change"
+      interval:
+        title: "&e&lRecurrence Interval"
+        lore:
+          - "&7Current Interval: &f%minutes% minutes"
+          - " "
+          - "&e» Click to change"
+      type:
+        name-scheduled: "&aType: Scheduled"
+        lore-scheduled:
+          - "&7The boss spawns on a specific"
+          - "&7day and time of the week."
+          - " "
+          - "&e» Click to switch to &b'Recurring'"
+        name-recurring: "&bType: Recurring"
+        lore-recurring:
+          - "&7The boss spawns repeatedly at"
+          - "&7a set interval."
+          - " "
+          - "&e» Click to switch to &a'Scheduled'"
+  vanilla-editor:
+    title: "&8Custom Mob Editor"
+    prompt-numeric: "{prefix}&ePlease enter a new numeric value for &b%setting%&e. &7(&6%cancel_keyword% &7to cancel)"
+    value-set: "{prefix}&a&b%setting% &asuccessfully set to &e%value%&a."
+    invalid-number-format: "{prefix}&cThat is not a valid number."
+    invalid-range: "{prefix}&cValue must be between &b%min% &cand &b%max%&c."
+    invalid-range-positive: "{prefix}&cValue must be a number greater than 0."
+    equipment-set: "{prefix}&a&b%type% &aequipment successfully set to &e%item%&a."
+    equipment-removed: "{prefix}&a&b%type% &aequipment successfully removed."
+    item:
+      entity-type:
+        title: "&b&lCreature Type"
+        lore:
+          - "&7Determines the base appearance"
+          - "&7and behavior of the creature."
+          - "&7Current Type: &f%type%"
+          - "&e» Click to change"
+      health:
+        title: "&c&lHealth Setting"
+        lore:
+          - "&7Determines the total health"
+          - "&7points of the creature."
+          - "&7Current: &f%value% HP"
+          - "&e» Click to change"
+      damage:
+        title: "&4&lDamage Setting"
+        lore:
+          - "&7Determines the damage"
+          - "&7the creature will deal."
+          - "&7Current: &f%value% DMG"
+          - "&e» Click to change"
+      equipment:
+        title-mainhand: "&bMain Hand Equipment"
+        title-helmet: "&bHelmet"
+        title-chestplate: "&bChestplate"
+        title-leggıngs: "&bLeggings"
+        title-boots: "&bBoots"
+        title-weapon: "&bWeapon"
+        lore:
+          - "&7Current Equipment:"
+          - "  &f%item%"
+          - " "
+          - "&e» &aLeft-Click to select from a list"
+          - "&e» &cRight-Click to set with item in hand"
+          - "&e» &bShift + Left-Click to add enchants"
+        lore-select: "&e» &aLeft-Click to select an item"
+        lore-equip: "&e» &cRight-Click to set from hand"
+        lore-enchant: "&e» &bShift + Left-Click to enchant"
+  equipment-selector:
+    title: "&8Equipment Selector &7» &0%type%"
+    item-selected: "{prefix}&aEquipment set to &e%item%&a."
+    lore:
+      - "&7Click to select this equipment."
+  mob-type-selection:
+    title: "&8Mob Type Settings"
+    mythicmobs-not-found: "{prefix}&cMythicMobs plugin must be loaded to use this feature."
+    mythicmobs-not-found-toggle: "{prefix}&cCannot switch source without MythicMobs loaded."
+    toggle-item:
+      name-is-mythic: "&bActive Source: &lMythicMobs"
+      lore-is-mythic:
+        - "&7Uses a creature from the MythicMobs"
+        - "&7plugin as the source."
+        - "&e» Click to switch to &a'Custom Mob'"
+      name-is-vanilla: "&aActive Source: &lCustom Mob"
+      lore-is-vanilla:
+        - "&7Uses a custom creature configured"
+        - "&7within this plugin as the source."
+        - "&e» Click to switch to &b'MythicMobs'"
+    edit-mythicmobs-item:
+      name: "&bMythicMobs Selection Menu"
+      lore:
+        - "&7Click to choose which MythicMob"
+        - "&7will be used."
+        - "&e» Click to open the menu"
+      name-disabled: "&cMythicMobs Disabled"
+    edit-vanilla-item:
+      name: "&aCustom Mob Editor"
+      lore:
+        - "&7Click to customize this mob's"
+        - "&7health, damage, armor, etc."
+        - "&e» Click to open the menu"
+  mythicmob-selector:
+    title: "&8MythicMob Selector"
+    mob-selected: "{prefix}&aMob source successfully set to &e%mob%&a."
+    no-mobs-found:
+      title: "&cNo MythicMobs Found"
+      lore:
+        - "&7Please check your MythicMobs/Mobs"
+        - "&7folder."
+    lore:
+      - " "
+      - "&e» Click to select this mob."
+  reward-list-menu:
+    title: "&8Rewards &7» &c%name%"
+    add-new: "&a&l[+] Add New Reward"
+    add-new-lore:
+      - "&7Creates a new reward for"
+      - "&7this entity."
+    no-rewards: "&cNo rewards have been configured for this entity."
+    item-lore:
+      prefix: "&8&m------------------------"
+      chance: "&7Chance: &e%chance%%"
+      target: "&7Target: &b%target%"
+      click-to-edit: "&e» Click to edit settings."
+    command-name: "&eCommand Reward"
+    command-lore:
+      - "&7Type: &fCOMMAND"
+      - "&7Command: &b/%command%"
+      - "&7Chance: &e%chance%%"
+      - "&7Target: &b%target%"
+      - " "
+      - "&e» Click to edit settings."
+  reward-type-selector:
+    title: "&8Select New Reward Type"
+    item:
+      name: "&bItem Reward"
+      lore:
+        - "&7Gives an item to the player."
+        - "&e» Click to select"
+    command:
+      name: "&eCommand Reward"
+      lore:
+        - "&7Runs a command."
+        - "&e» Click to select"
+  reward-config-menu:
+    title: "&8Reward Settings"
+    reward-deleted: "{prefix}&aReward successfully deleted."
+    prompt-chance: "{prefix}&ePlease enter a drop chance (0-100). &7(&6%cancel_keyword% &7to cancel)"
+    prompt-command: "{prefix}&ePlease enter the command to run (without /, %player% can be used). &7(&6%cancel_keyword% &7to cancel)"
+    prompt-item: "{prefix}&eThe item in your hand will be set as the reward."
+    invalid-chance-range: "{prefix}&cChance must be between 0 and 100."
+    no-item-in-hand: "{prefix}&cYou must hold an item to set it as a reward."
+    item-set: "{prefix}&aReward item successfully set to the item in your hand."
+    command-set: "{prefix}&aReward command successfully set to &e/%command%&a."
+    chance-set: "{prefix}&aChance successfully set to &e%chance%&a."
+    target:
+      name: "&bChange Target"
+      lore:
+        - "&7Sets who this reward will be given to."
+        - "&7Current: &f%target%"
+        - "&e» Click to change"
+    chance:
+      name: "&eSet Drop Chance"
+      lore:
+        - "&7Determines the percentage"
+        - "&7chance of this reward dropping."
+        - "&7Current: &f%chance%%"
+        - "&e» Click to change"
+    value:
+      name-item: "&aSet Reward Item"
+      lore-item:
+        - "&7Click to change the reward item"
+        - "&7to the one currently in your hand."
+      name-command: "&eEdit Command"
+      lore-command:
+        - "&7Edit the command to be"
+        - "&7executed via chat."
+      display-lore-command:
+        - "&7You are configuring this command."
+        - "&7Current: &f/%command%"
+    delete:
+      name: "&c&lDelete This Reward"
+      lore:
+        - "&cPermanently deletes this reward."
+  enchant-selector:
+    title: "&8Enchantment Selector &7» &0%item%"
+    prompt-level: "{prefix}&ePlease enter a level for &b%enchant%&e. (Enter 0 to remove)"
+    enchant-set: "{prefix}&b%enchant% &aenchantment set to level &e%level%&a."
+    enchant-removed: "{prefix}&b%enchant% &aenchantment has been removed."
+    invalid-level: "{prefix}&cInvalid level! Max level for this enchantment is: &b%max_level%"
+    item:
+      lore:
+        - "&7Set the level for this enchantment."
+        - "&7Current Level: &f%level%"
+        - " "
+        - "&e» Click to change"
+
+# --- DAYS OF THE WEEK ---
+days:
+  everyday: "Every Day"
+  monday: "Monday"
+  tuesday: "Tuesday"
+  wednesday: "Wednesday"
+  thursday: "Thursday"
+  friday: "Friday"
+  saturday: "Saturday"
+  sunday: "Sunday"
+
+# --- PLACEHOLDER TEXTS ---
+placeholders:
+  not-available: "N/A"
+  loading: "Loading..."
+  not-found-rank: "N/A"
+  event-none: "No Event"
+  format-days: "&e%days%d %hours%h"
+  format-hours: "&e%hours%:%minutes%:%seconds%"
+  format-minutes: "&e%minutes%:%seconds%"
